@@ -3,20 +3,96 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cover Snap</title>
+<title>Vice Cover Studio — GTA-style cover art maker</title>
 <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+<header class="brand">
+  <div class="brand-mark">VC</div>
+  <div>
+    <h1>Vice Cover Studio</h1>
+    <p>Your photos, made into GTA-style cover art. Everything runs on your machine — photos never leave it.</p>
+  </div>
+</header>
 <main class="app">
-  <section class="controls">
-    <h1>Cover Snap</h1>
-    <p>A photo and a caption, made into a square cover.</p>
-    <label>Photo <input id="photo" type="file" accept="image/*"></label>
-    <label>Caption <input id="caption" type="text" maxlength="40" value="Sunset Heist"></label>
-    <button id="export" type="button">Export PNG 1080 x 1080</button>
+  <section class="controls" aria-label="Cover controls">
+    <div class="group">
+      <h2>1 · Photos</h2>
+      <label class="upload">Add your photos
+        <input id="photoFile" type="file" accept="image/*" multiple>
+      </label>
+      <div class="samples">
+        <button type="button" data-sample="pier">Pier sample</button>
+        <button type="button" data-sample="boulevard">Boulevard sample</button>
+      </div>
+      <div id="photoTray" class="tray" aria-label="Photo library"></div>
+      <p class="hint">Click a photo to put it in the selected panel.</p>
+    </div>
+
+    <div class="group">
+      <h2>2 · Layout</h2>
+      <div class="layout-row">
+        <button type="button" data-layout="vice-grid" class="active">
+          <span class="diagram grid"><i></i><i></i><i></i></span>Vice Grid
+        </button>
+        <button type="button" data-layout="sunset-hero">
+          <span class="diagram hero"><i></i></span>Sunset Hero
+        </button>
+        <button type="button" data-layout="neon-split">
+          <span class="diagram split"><i></i><i></i><i></i></span>Neon Split
+        </button>
+        <button type="button" data-layout="coast-strip">
+          <span class="diagram strip"><i></i><i></i><i></i></span>Coast Strip
+        </button>
+      </div>
+    </div>
+
+    <div class="group">
+      <h2>3 · Colour grade</h2>
+      <div class="grade-row">
+        <button type="button" data-grade="vice-sunset" class="active"><span class="swatch g-sunset"></span>Sunset</button>
+        <button type="button" data-grade="neon-nights"><span class="swatch g-neon"></span>Neon</button>
+        <button type="button" data-grade="palm-noir"><span class="swatch g-noir"></span>Noir</button>
+        <button type="button" data-grade="golden-hour"><span class="swatch g-golden"></span>Golden</button>
+        <button type="button" data-grade="chrome"><span class="swatch g-chrome"></span>Chrome</button>
+        <button type="button" data-grade="original"><span class="swatch g-original"></span>Original</button>
+      </div>
+    </div>
+
+    <div class="group">
+      <h2>4 · Caption</h2>
+      <label>Title <input id="title" type="text" maxlength="48" value="SUNSET HEIST"></label>
+      <label>Subtitle <input id="subtitle" type="text" maxlength="48" value="NEON COAST"></label>
+    </div>
+
+    <div class="group">
+      <h2>5 · Size</h2>
+      <div class="size-row">
+        <button type="button" data-size="square" class="active">1080 × 1080</button>
+        <button type="button" data-size="portrait">1080 × 1350</button>
+        <button type="button" data-size="landscape">1920 × 1080</button>
+      </div>
+    </div>
+
+    <div class="group">
+      <h2>Selected panel</h2>
+      <p id="panelLabel" class="panel-label">Panel 1 of 3</p>
+      <label>Zoom <span class="range-row"><input id="zoom" type="range" min="100" max="350" value="100"><output id="zoomVal">100%</output></span></label>
+      <div class="panel-actions">
+        <button type="button" id="resetCrop">Reset crop</button>
+        <button type="button" id="fillAll">One photo everywhere</button>
+      </div>
+      <p class="hint">Click a panel in the preview to select it. Drag to move its photo, scroll to zoom.</p>
+    </div>
+
+    <button id="export" type="button" class="export">Export PNG 1080 × 1080</button>
     <p id="status" role="status"></p>
   </section>
-  <canvas id="cover" width="1080" height="1080" aria-label="The cover"></canvas>
+
+  <section class="stage" aria-label="Live preview">
+    <canvas id="cover" width="1080" height="1080" aria-label="The cover, live preview"></canvas>
+    <p class="stage-hint">Live preview — what you see is what the PNG holds.</p>
+  </section>
 </main>
 <script type="module" src="./src/main.js"></script>
 </body>

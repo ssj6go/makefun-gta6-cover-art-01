@@ -1,5 +1,1 @@
-[
-  { "name": "1-cover.jpg", "query": "?shot=cover&photo=pier&caption=Sunset%20Heist", "w": 1080, "h": 1080 },
-  { "name": "2-editor.jpg", "query": "?shot=editor&photo=boulevard&caption=Boulevard%20Queen", "w": 1280, "h": 720 },
-  { "name": "3-cover.jpg", "query": "?shot=cover&photo=boulevard&caption=Boulevard%20Queen", "w": 1080, "h": 1080 }
-]
+[{"h":720,"name":"1-cover.jpg","query":"?shot=cover&size=landscape&layout=vice-grid&grade=vice-sunset&photos=pier,boulevard&panels=boulevard,pier,boulevard&crops=0,0.18;0,0.15;0,0.30&caption=Sunset%20Heist&sub=Neon%20Coast","w":1280},{"h":800,"name":"2-editor.jpg","query":"?shot=editor&size=square&layout=vice-grid&grade=vice-sunset&photos=pier,boulevard&panels=boulevard,pier,boulevard&caption=Sunset%20Heist&sub=Neon%20Coast","w":1280},{"h":1280,"name":"3-cover.jpg","query":"?shot=cover&size=portrait&layout=sunset-hero&grade=golden-hour&photos=boulevard&panels=boulevard&caption=Boulevard%20Queen&sub=Golden%20Hour","w":1024},{"h":1080,"name":"4-cover.jpg","query":"?shot=cover&size=square&layout=neon-split&grade=neon-nights&photos=pier,boulevard&panels=pier,boulevard,pier&caption=Neon%20Tide&sub=After%20Dark","w":1080}]
